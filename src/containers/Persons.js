@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import Person from '../components/Person/Person';
 import AddPerson from '../components/AddPerson/AddPerson';
@@ -28,10 +28,10 @@ class Persons extends Component {
     // }
 
     render () {
-        console.log(this.props.global_persons);
+        console.log(this.props);
         return (
             <div>
-                <AddPerson personAdded={() =>this.props.onAddPerson()} />
+                <AddPerson personAdded={() => this.props.onAddPerson()} />
                 {this.props.global_persons.map(element => (
                     <Person 
                         key={element.id}
@@ -57,7 +57,6 @@ const mapDispatchToProps = dispatch => {
         onAddPerson: () => dispatch({type: actionTypes.ADD_PERSON}),
         onDeletePerson: (id) => dispatch({type: actionTypes.DELETE_PERSON, personId: id})
     };
-};
-
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Persons);

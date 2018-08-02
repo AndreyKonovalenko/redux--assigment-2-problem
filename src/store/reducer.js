@@ -1,7 +1,7 @@
 import * as actionTypes from './actions';
 
 const initialState = {
-    presons: []
+    persons: []
 };
 
 const reducer = (state = initialState, action) => { 
@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
             }
             return {
                 ...state,
-                presons: state.presons.concat(newPerson)
+                persons: state.persons.concat(newPerson)
             }
         case actionTypes.DELETE_PERSON: 
             const updatedArray = state.persons.filter(element => element.id !== action.personId);
